@@ -68,6 +68,8 @@ class ResourceController extends Controller
      */
     public function destroy(int $id)
     {
-        //
+        $promotion = Promotion::findOrFail($id);
+        $promotion->delete();
+        return redirect()->route('promotions.index')->with('success', 'LLM deleted successfully.');
     }
 }
