@@ -7,7 +7,7 @@
         <img src="{{ $promotion->image }}" class="object-cover w-full" alt="{{ $promotion->title }}">
     </div>
     <h2 class="text-2xl font-bold">{{ $promotion->title }}</h2>
-    <p class="text-gray-200">{{ $promotion->description }}</p>
+    <p class="text-gray-200 whitespace-pre-wrap mb-3">{{ $promotion->description }}</p>
     <a class="text-gray-500 hover:text-gray-200" href="{{ route('promotions.edit', $promotion) }}">Edit</a>
 </div>
 @endsection
