@@ -25,11 +25,18 @@
     </head>
     <body class="bg-gray-900 text-white p-5">
         @yield('content')
-        <div id="alerts" class="duration-1000 opacity-100">
+        <div id="alerts" class="duration-1000 opacity-100 fixed bottom-5 right-5 z-50">
             @if(session()->has('success'))
-                <div class="bg-green-600 text-white p-3 rounded-lg fixed bottom-5 right-5">
+                <div class="bg-green-600 text-white p-3 rounded-lg">
                     {{ session('success') }}
                 </div>
+            @endif
+            @if($errors->any())
+                @foreach($errors->all() as $error)
+                    <div class="bg-red-600 text-white p-3 rounded-lg mt-3">
+                        {{ $error }}
+                    </div>
+                @endforeach
             @endif
         </div>
         <script>

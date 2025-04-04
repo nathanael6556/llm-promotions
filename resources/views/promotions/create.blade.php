@@ -7,13 +7,13 @@
         @csrf
 
         <label for="input-title">Title</label>
-        <input required id="input-title" type="text" name="title" class="border-2 border-gray-300 rounded-lg p-2 mb-4 w-full" placeholder="Title">
+        <input required id="input-title" type="text" maxlength="255" name="title" value="{{ old('title') }}" class="border-2 border-gray-300 rounded-lg p-2 mb-4 w-full" placeholder="Title">
 
         <label for="input-description">Description</label>
-        <textarea required id="input-description" type="text" name="description" class="border-2 border-gray-300 rounded-lg p-2 mb-4 w-full" placeholder="Description"></textarea>
+        <textarea required id="input-description" type="text" name="description" class="border-2 border-gray-300 rounded-lg p-2 mb-4 w-full" placeholder="Description">{{ old('description') }}</textarea>
 
         <label for="input-image">Image URL</label>
-        <input required id="input-image" type="url" name="image" class="border-2 border-gray-300 rounded-lg p-2 mb-4 w-full" placeholder="Image URL">
+        <input required id="input-image" type="url" maxlength="255" name="image" value="{{ old('image') }}" class="border-2 border-gray-300 rounded-lg p-2 mb-4 w-full" placeholder="Image URL">
 
         <a class="text-gray-500 hover:text-gray-100" href="{{ route('promotions.index') }}">Cancel</a>
         <button class="font-bold float-right text-gray-300 hover:text-gray-100 cursor-pointer" type="submit">Create</button>

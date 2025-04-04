@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Promotion;
-use Illuminate\Http\Request;
+use App\Http\Requests\PromotionRequest;
 
 class ResourceController extends Controller
 {
@@ -27,9 +27,10 @@ class ResourceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PromotionRequest $request)
     {
-        $promotion = Promotion::create($request->all());
+        $data = $request->validated();
+        $promotion = Promotion::create($data);
         return redirect()->route('promotions.show', ['id' => $promotion->id])->with('success', 'LLM created successfully.');
     }
 
@@ -54,10 +55,11 @@ class ResourceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, int $id)
+    public function update(PromotionRequest $request, int $id)
     {
+        $data = $request->validated();
         $promotion = Promotion::findOrFail($id);
-        $promotion->update($request->all());
+        $promotion->update($data);
         return redirect()->route('promotions.show', compact('id'))->with('success', 'LLM updated successfully.');
     }
 
