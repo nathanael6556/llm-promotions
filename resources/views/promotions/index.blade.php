@@ -7,8 +7,8 @@
         @foreach ($promotions as $promotion)
         <a href="{{ route('promotions.show', $promotion) }}" class="shadow-2xl p-3 rounded-xl bg-gray-800 height-full">
             <img src="{{ $promotion->image }}" class="object-cover rounded-xl mb-3" width="100%" alt="{{ $promotion->title }}">
-            <h2 class="text-lg font-bold">{{ $promotion->title }}</h2>
-            <p class="text-gray-200">{{ $promotion->description }}</p>
+            <h2 class="text-lg font-bold truncate">{{ $promotion->title }}</h2>
+            <p class="text-gray-200 truncate">{{ $promotion->description }}</p>
         </a>
         @endforeach
     </div>
